@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="sshm_bos"
+  id="myeclipse.1510034638951"
+  context-root="/sshm_bos"
+  j2ee-spec="6.0"
+  archive="sshm_bos.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+
