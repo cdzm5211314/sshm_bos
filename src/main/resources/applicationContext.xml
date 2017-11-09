@@ -44,5 +44,12 @@
 			</list>
 		</property>
 	</bean>
-
+	
+	<!-- UserDAO -->
+	<bean id="userDAO" class="com.chen.bos.dao.impl.GenericDAOImpl">
+		<!-- 构造器参数 -->
+		<constructor-arg index="0" type="java.lang.Class" value="com.chen.bos.domain.User"></constructor-arg>
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
 </beans>
