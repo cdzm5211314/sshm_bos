@@ -76,7 +76,7 @@ input[type=password] {
 						style="margin-top:58px;">
 						<div id="codeInputLine" class="loginFormIpt showPlaceholder"
 							style="margin-left:0px;margin-top:-40px;width:50px;">
-								<s:textfield name="checkCode" id="loginform:codeInput" cssClass="loginFormTdIpt" />
+								<s:textfield name="checkcode" id="loginform:codeInput" cssClass="loginFormTdIpt" />
 							<img id="loginform:vCode" src="${pageContext.request.contextPath }/validatecode.jsp"
 								onclick="javascript:document.getElementById('loginform:vCode').src='${pageContext.request.contextPath }/validatecode.jsp?'+Math.random();" />
 						</div>
