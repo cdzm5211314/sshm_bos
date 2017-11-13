@@ -23,4 +23,10 @@ public class UserServiceImpl extends BaseService implements UserService {
 		return list.isEmpty() ? null : list.get(0);
 	}
 
+	@Override
+	@Transactional(readOnly = false)
+	public void editPassword(User user) {
+		userDAO.update(user);
+	}
+
 }

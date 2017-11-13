@@ -80,14 +80,42 @@
 		},3000);
 		/*************/
 		
+		//修改密码取消按钮---关闭修改密码窗口
 		$("#btnCancel").click(function(){
 			$('#editPwdWindow').window('close');
 		});
 		
+		//修改密码确认按钮---判断两次密码是否一致,如果一致发送ajax请求到服务器
 		$("#btnEp").click(function(){
-			alert("修改密码");
+			//获取两次输入的密码
+			var txtNewPass = $("#txtNewPass").val();
+			var txtRePass = $("#txtRePass").val();
+			//判断两次密码是否一致
+			if (txtNewPass.trim() == "") {
+				//密码为空
+				$.messager.alert("警告","密码不能空!","warning");
+				return ;
+			}
+			if (txtNewPass.trim() != txtRePass.trim()) {
+				//两次密码不一致
+				$.messager.alert("警告","两次密码不一致!","warning");
+				return ;
+			}
+			//提交ajax请求
+			$.post("${pageContext.request.contextPath}/user_editPassword.action",{"password":txtNewPass},function(data){
+				//回调函数
+				if (data.result == "success") {
+					//成功
+					$.messager.alert("信息",data.msg,"info");
+				}else{
+					//失败
+					$.messager.alert("失败",data.msg,"error");
+				}
+				//关闭修改密码后的窗口
+				$('#editPwdWindow').window('close');
+			});
 		});
-	});
+	});	
 
 	function onClick(event, treeId, treeNode, clickFlag) {
 		// 判断树菜单节点是否含有 page属性
