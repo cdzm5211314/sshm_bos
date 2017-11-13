@@ -11,12 +11,36 @@
 	<constant name="struts.custom.i18n.resources" value="messages"></constant>
 	
 	<package name="basicstruts2" extends="struts-default">
-	
+		<!-- 自定义拦截器 -->
+		<interceptors>
+			<!-- 定义拦截器名称 -->
+			<interceptor name="login" class="loginInterceptor"></interceptor>
+			<!-- 定义拦截器栈名称 -->
+			<interceptor-stack name="loginStack">
+				<!-- 引用拦截器 -->
+				<interceptor-ref name="login">
+					<!-- 配置不需要拦截的方法 -->
+					<param name="excludeMethods">login</param>
+				</interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		
+		<!-- 设置默认的拦截器 -->
+		<default-interceptor-ref name="loginStack"></default-interceptor-ref>
+		
+		<!-- 配置全局结果集 -->
+		<global-results>
+			<result name="login">/login.jsp</result>
+		</global-results>
+		
+		<!-- 用户管理模块 -->
 		<action name="user_*" class="userAction" method="{1}">
 			<result name="loginINPUT">/login.jsp</result>
 			<result name="loginSUCCESS">/index.jsp</result>
 			<result name="logoutSUCCESS" type="redirect">/login.jsp</result>
 		</action>
+	
 	
 		<action name="index">
 			<result>/index.jsp</result>

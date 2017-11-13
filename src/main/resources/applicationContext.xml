@@ -65,8 +65,8 @@
 	<!-- UserAction -->
 	<bean id="userAction" class="com.chen.bos.web.action.user.UserAction" scope="prototype"></bean>
 
-
-
+	<!-- 自定义拦截器类 LoginInterceptor -->
+	<bean id="loginInterceptor" class="com.chen.bos.web.interceptor.LoginInterceptor" scope="prototype"></bean>
 
 
 </beans>
