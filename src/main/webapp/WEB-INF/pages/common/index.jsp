@@ -132,10 +132,9 @@
 	};
 	// 退出登录
 	function logoutFun() {
-		$.messager
-		.confirm('系统提示','您确定要退出本次登录吗?',function(isConfirm) {
+		$.messager.confirm('系统提示','您确定要退出本次登录吗?',function(isConfirm) {
 			if (isConfirm) {
-				location.href = '${pageContext.request.contextPath }/login.jsp';
+				location.href = '${pageContext.request.contextPath }/user_logout.action';
 			}
 		});
 	}

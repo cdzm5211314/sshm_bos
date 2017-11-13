@@ -20,6 +20,13 @@ public class UserAction extends BaseAction<User> {
 	@Resource(name="userService")
 	private UserService userService;
 	
+	//用户退出
+	public String logout(){
+		ServletActionContext.getRequest().getSession().invalidate();
+		return "logoutSUCCESS";
+	}
+	
+	// 用户登录
 	public String login(){
 		//校验验证码是否正确
 		String key = (String) ServletActionContext.getRequest().getSession().getAttribute("key");
